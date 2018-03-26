@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace BankApp
 {
@@ -20,6 +21,10 @@ namespace BankApp
             get => _sum;
             set => _sum = value;
         }
-
+        public DateTime Timestamp
+        {
+            get => _timestamp;
+            set => _timestamp = value;
+        }
     }
 }

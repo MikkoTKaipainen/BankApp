@@ -41,5 +41,16 @@ namespace BankApp
                     where account.AccountNumber == accountNumber
                     select account).FirstOrDefault().Balance;
         }
+
+        public List<Transaction> PrintTransactionsForCustomerForTimeSpan(string accountNumber,
+            DateTime startTime, DateTime endTime)
+        {
+            //return _accounts.FirstOrDefault(a => a.AccountNumber == accountNumber)
+            //    .GetTransactionsForTimeSpan(startTime, endTime);
+
+            return (from account in _accounts
+                    where account.AccountNumber == accountNumber
+                    select account).FirstOrDefault().GetTransactionForTimeSpan(startTime, endTime);
+        }
     }
 }

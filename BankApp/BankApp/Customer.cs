@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace BankApp
 {
@@ -22,6 +23,8 @@ namespace BankApp
             get => _accountNumber;
             set => _accountNumber = value;
         }
+        public string FirstName { get => _firstName; set => _firstName = value; }
+        public string LastName { get => _lastName; set => _lastName = value; }
 
         public override string ToString()
         {
