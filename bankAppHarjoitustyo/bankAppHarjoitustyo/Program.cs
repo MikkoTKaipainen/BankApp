@@ -13,9 +13,15 @@ namespace bankAppHarjoitustyo
 
             //AddCustomer();
 
-            //BankView();
-
             //AddAccount();
+
+            //AddBank();
+
+            //UpdateBank();
+
+            //RemoveBank();
+
+            //BankView();
 
 
             Console.WriteLine("Press any key to exit...");
@@ -50,9 +56,35 @@ namespace bankAppHarjoitustyo
 
         static void AddAccount()
         {
-            Account account = new Account("FI2345670987213456","Säästötili",1,5,0);
+            Account account = new Account("FI2345670987213456", "Säästötili", 1, 5, 0);
             AccountRepository accountRepository = new AccountRepository();
             accountRepository.AddAccount(account);
+        }
+
+        static void AddBank()
+        {
+            Bank bank = new Bank("Linnapankki", "LINNFIHH",5);
+            BankRepository bankRepository = new BankRepository();
+            bankRepository.AddBank(bank);
+        }
+
+        static void RemoveBank()
+        {
+            Bank bank = new Bank("Linnapankki", "LINNFIHH", 5);
+            BankRepository bankRepository = new BankRepository();
+            bankRepository.RemoveBank(bank);
+        }
+
+        static void UpdateBank()
+        {
+            Bank bank = new Bank("Linnapankki", "LINAFIHH",5);
+            BankRepository bankRepository = new BankRepository();
+            bankRepository.UpdateBank(bank);
+        }
+
+        static void UpdateCustomer()
+        {
+            Customer customer = new Customer()
         }
 
     }

@@ -12,8 +12,9 @@ namespace bankAppHarjoitustyo.model
             Account = new HashSet<Account>();
         }
 
-        public Customer(string firstName, string lastName, long bankId)
+        public Customer(long id, string firstName, string lastName, long bankId)
         {
+            Id = id;
             FirstName = firstName;
             LastName = lastName;
             BankId = bankId;

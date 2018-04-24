@@ -32,6 +32,60 @@ namespace bankAppHarjoitustyo.repositories
             }
         }
 
+        public void AddBank(Bank bank)
+        {
+            using (var context = new BankdbContext())
+            {
+                try
+                {
+                    //Lisätään tapahtumatauluun rivi
+                    context.Add(bank);
+                    //Tallennetaan muutokset tietokantaan
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new NotImplementedException($"{ex.Message}\n{ex.InnerException.Message}");
+                }
+            }
+        }
+
+        public void RemoveBank(Bank bank)
+        {
+            using (var context = new BankdbContext())
+            {
+                try
+                {
+                    //Lisätään tapahtumatauluun rivi
+                    context.Remove(bank);
+                    //Tallennetaan muutokset tietokantaan
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new NotImplementedException($"{ex.Message}\n{ex.InnerException.Message}");
+                }
+            }
+        }
+
+        public void UpdateBank(Bank bank)
+        {
+            using (var context = new BankdbContext())
+            {
+                try
+                {
+                    //Lisätään tapahtumatauluun rivi
+                    context.Update(bank);
+                    //Tallennetaan muutokset tietokantaan
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new NotImplementedException($"{ex.Message}\n{ex.InnerException.Message}");
+                }
+            }
+        }
+
 
     }
         
