@@ -21,7 +21,7 @@ namespace bankAppHarjoitustyo.repositories
                         .Include(b => b.Customer)
                         .Include(b => b.Account)
                         .Include(b => b.Account).ThenInclude(a => a.Transaction)
-                        //.Where(b => b.Id == 13)
+                        .Where(b => b.Id == 2)
                         .ToListAsync().Result;
                     return banks;
                 }
@@ -56,7 +56,7 @@ namespace bankAppHarjoitustyo.repositories
             {
                 try
                 {
-                    //Lisätään tapahtumatauluun rivi
+                    //Lisätään tai poistetaan tapahtumataulun rivi
                     context.Remove(bank);
                     //Tallennetaan muutokset tietokantaan
                     context.SaveChanges();
@@ -86,6 +86,23 @@ namespace bankAppHarjoitustyo.repositories
             }
         }
 
+        public Bank GetBank(string name)
+        {
+            using (var context = new BankdbContext())
+            {
+                try
+                {
+                    //hakee pankin tiedot
+                    var bank = context.Bank.FirstOrDefault(b => b.Name == name);
+                    //palauttaa pankin tiedot
+                    return bank;
+                }
+                catch (Exception ex)
+                {
+                    throw new NotImplementedException(ex.Message);
+                }
+            }
+        }
 
     }
         

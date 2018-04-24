@@ -62,6 +62,21 @@ namespace bankAppHarjoitustyo.repositories
                 }
         }
 
+        public void RemoveAccount(Account account)
+        {
+            using (var context = new BankdbContext())
+                try
+                {
+                    context.Remove(account);
+
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new NotImplementedException($"{ex.Message}\n{ex.InnerException.Message}");
+                }
+        }
+
 
 
 

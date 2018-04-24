@@ -15,6 +15,8 @@ namespace bankAppHarjoitustyo
 
             //AddAccount();
 
+            //RemoveAccount();
+
             //AddBank();
 
             //UpdateBank();
@@ -22,6 +24,14 @@ namespace bankAppHarjoitustyo
             //RemoveBank();
 
             //BankView();
+
+            //UpdateCustomer();
+
+            //RemoveCustomer();
+
+            PrintCustomerData("Dirk", "McTullamore");
+
+            PrintCustomerTransactions("Dirk", "McTullamore");
 
 
             Console.WriteLine("Press any key to exit...");
@@ -43,7 +53,7 @@ namespace bankAppHarjoitustyo
 
         static void AddCustomer()
         {
-            Customer customer = new Customer("Paul", "McDingelson", 2);
+            Customer customer = new Customer("Paul", "McDingelson", 1);
             CustomerRepository customerRepository = new CustomerRepository();
             customerRepository.AddCustomer(customer);
         }
@@ -56,14 +66,21 @@ namespace bankAppHarjoitustyo
 
         static void AddAccount()
         {
-            Account account = new Account("FI2345670987213456", "Säästötili", 1, 5, 0);
+            Account account = new Account("FI2345670987213456", "Säästötili", 1, 3, 0);
             AccountRepository accountRepository = new AccountRepository();
             accountRepository.AddAccount(account);
         }
 
+        static void RemoveAccount()
+        {
+            Account account = new Account("FI2345670987213456", "Säästötili", 1, 3, 0);
+            AccountRepository accountRepository = new AccountRepository();
+            accountRepository.RemoveAccount(account);
+        }
+
         static void AddBank()
         {
-            Bank bank = new Bank("Linnapankki", "LINNFIHH",5);
+            Bank bank = new Bank("Linnapankki", "LINNFIHH", 5);
             BankRepository bankRepository = new BankRepository();
             bankRepository.AddBank(bank);
         }
@@ -77,15 +94,37 @@ namespace bankAppHarjoitustyo
 
         static void UpdateBank()
         {
-            Bank bank = new Bank("Linnapankki", "LINAFIHH",5);
+            Bank bank = new Bank("Linnapankki", "LINAFIHH", 5);
             BankRepository bankRepository = new BankRepository();
             bankRepository.UpdateBank(bank);
         }
 
         static void UpdateCustomer()
         {
-            Customer customer = new Customer()
+            Customer customer = new Customer("Paul", "McDingelson", 1);
+            CustomerRepository customerRepository = new CustomerRepository();
+            customerRepository.UpdateCustomer(customer);
         }
+
+        static void RemoveCustomer()
+        {
+            Customer customer = new Customer("Paul", "McDingelson", 1);
+            CustomerRepository customerRepository = new CustomerRepository();
+            customerRepository.RemoveCustomer(customer);
+        }
+
+        static void PrintCustomerData(string FirstName, string LastName)
+        {
+            CustomerView customerView = new CustomerView();
+            customerView.PrintCustomerData(FirstName, LastName);
+        }
+
+        static void PrintCustomerTransactions(string FirstName, string LastName)
+        {
+            CustomerView customerView = new CustomerView();
+            customerView.PrintCustomerTransactions(FirstName, LastName);
+        }
+
 
     }
 }
