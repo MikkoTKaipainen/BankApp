@@ -21,7 +21,8 @@ namespace bankAppHarjoitustyo.repositories
                         .Include(b => b.Customer)
                         .Include(b => b.Account)
                         .Include(b => b.Account).ThenInclude(a => a.Transaction)
-                        .Where(b => b.Id == 2)
+                        //Komennolla Where voidaan määrittää minkä pankin tiedot halutaan tulostaa
+                        //.Where(b => b.Id == 1)
                         .ToListAsync().Result;
                     return banks;
                 }

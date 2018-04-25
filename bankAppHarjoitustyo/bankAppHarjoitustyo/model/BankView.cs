@@ -29,7 +29,6 @@ namespace bankAppHarjoitustyo.model
                     }
                 }
             }
-
         }
     }
 }

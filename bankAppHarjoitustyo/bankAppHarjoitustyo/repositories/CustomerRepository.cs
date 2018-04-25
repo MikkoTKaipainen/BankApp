@@ -96,18 +96,24 @@ namespace bankAppHarjoitustyo.repositories
                 }
         }
 
-        public Customer GetCustomerTransactions(string firstname, string lastname)
+        public List<Customer> GetCustomerTransactions(Customer customer)
         {
             using (var context = new BankdbContext())
+            {
                 try
                 {
-                    var customer = context.Customer.FirstOrDefault(a => a.FirstName == firstname && a.LastName == lastname);
-                    return customer;
+                    List<Customer> customers = context.Customer
+                        .Include(c => c.Account)
+                        .ThenInclude(c => c.Transaction)
+                        .Where(c => c.Id == customer.Id)
+                        .ToListAsync().Result;
+                    return customers;
                 }
                 catch (Exception ex)
                 {
-                    throw new NotImplementedException($"{ex.Message}\n{ex.InnerException.Message}");
+                    throw new NotImplementedException(ex.Message);
                 }
+            }
         }
     }
 }

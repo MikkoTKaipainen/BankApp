@@ -11,27 +11,27 @@ namespace bankAppHarjoitustyo
 
             //AddTransaction();
 
-            //AddCustomer();
+            //AddCustomer("Mikko", "Kaipainen", 1);
 
-            //AddAccount();
+            //AddAccount("FI2345670987213456", "Säästötili", 1, 3, 0);
 
-            //RemoveAccount();
+            ////RemoveAccount("FI2345670987213456", "Säästötili");
 
-            //AddBank();
+            //AddBank("Linnapankki", "LINNFIHH", 5);
 
-            //UpdateBank();
+            //UpdateBank("Linnapankki", "LINAFIHH", 5);
 
-            //RemoveBank();
+            //RemoveBank("Linnapankki", 5);
 
-            //BankView();
+            BankView();
 
-            //UpdateCustomer();
+            //UpdateCustomer("Paul", "McDingelson", 1);
 
-            //RemoveCustomer();
+            //RemoveCustomer("Paul", "McDingelson", 1);
 
-            PrintCustomerData("Dirk", "McTullamore");
+            //PrintCustomerData("Dirk", "McTullamore");
 
-            PrintCustomerTransactions("Dirk", "McTullamore");
+            //PrintCustomerTransactions("Dirk", "McTullamore");
 
 
             Console.WriteLine("Press any key to exit...");
@@ -51,9 +51,9 @@ namespace bankAppHarjoitustyo
             accountRepository.AddTransaction(transaction);
         }
 
-        static void AddCustomer()
+        static void AddCustomer(string firstName, string lastName, long bankId)
         {
-            Customer customer = new Customer("Paul", "McDingelson", 1);
+            Customer customer = new Customer();
             CustomerRepository customerRepository = new CustomerRepository();
             customerRepository.AddCustomer(customer);
         }
@@ -64,51 +64,51 @@ namespace bankAppHarjoitustyo
             bankView.PrintAllBanks();
         }
 
-        static void AddAccount()
+        static void AddAccount(string iban, string name, long bankId, long customerId, decimal balance)
         {
-            Account account = new Account("FI2345670987213456", "Säästötili", 1, 3, 0);
+            Account account = new Account();
             AccountRepository accountRepository = new AccountRepository();
             accountRepository.AddAccount(account);
         }
 
-        static void RemoveAccount()
+        static void RemoveAccount(string iban, string name)
         {
-            Account account = new Account("FI2345670987213456", "Säästötili", 1, 3, 0);
+            Account account = new Account();
             AccountRepository accountRepository = new AccountRepository();
             accountRepository.RemoveAccount(account);
         }
 
-        static void AddBank()
+        static void AddBank(string name, string bic, long id)
         {
-            Bank bank = new Bank("Linnapankki", "LINNFIHH", 5);
+            Bank bank = new Bank();
             BankRepository bankRepository = new BankRepository();
             bankRepository.AddBank(bank);
         }
 
-        static void RemoveBank()
+        static void RemoveBank(string name, long id)
         {
-            Bank bank = new Bank("Linnapankki", "LINNFIHH", 5);
+            Bank bank = new Bank();
             BankRepository bankRepository = new BankRepository();
             bankRepository.RemoveBank(bank);
         }
 
-        static void UpdateBank()
+        static void UpdateBank(string name, string bic, long id)
         {
-            Bank bank = new Bank("Linnapankki", "LINAFIHH", 5);
+            Bank bank = new Bank();
             BankRepository bankRepository = new BankRepository();
             bankRepository.UpdateBank(bank);
         }
 
-        static void UpdateCustomer()
+        static void UpdateCustomer(string firstName, string lastName, long bankId)
         {
-            Customer customer = new Customer("Paul", "McDingelson", 1);
+            Customer customer = new Customer();
             CustomerRepository customerRepository = new CustomerRepository();
             customerRepository.UpdateCustomer(customer);
         }
 
-        static void RemoveCustomer()
+        static void RemoveCustomer(string firstName, string lastName, long bankId)
         {
-            Customer customer = new Customer("Paul", "McDingelson", 1);
+            Customer customer = new Customer();
             CustomerRepository customerRepository = new CustomerRepository();
             customerRepository.RemoveCustomer(customer);
         }
