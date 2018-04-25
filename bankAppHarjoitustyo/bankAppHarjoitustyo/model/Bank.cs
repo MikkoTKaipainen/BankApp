@@ -13,11 +13,15 @@ namespace bankAppHarjoitustyo.model
             Customer = new HashSet<Customer>();
         }
 
-        public Bank(string name, string bic, long id)
+        public Bank(long id)
+        {
+            Id = id;
+        }
+
+        public Bank(string name, string bic)
         {
             Name = name;
             Bic = bic;
-            Id = id;
         }
 
         public long Id { get; set; }

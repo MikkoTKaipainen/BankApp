@@ -15,19 +15,19 @@ namespace bankAppHarjoitustyo
 
             //AddAccount("FI2345670987213456", "Säästötili", 1, 3, 0);
 
-            ////RemoveAccount("FI2345670987213456", "Säästötili");
+            //RemoveAccount("FI2345670987213456", "Säästötili", 1, 3, 0);
 
-            //AddBank("Linnapankki", "LINNFIHH", 5);
+            //AddBank("Linnapankki", "LINNFIHH");
 
-            //UpdateBank("Linnapankki", "LINAFIHH", 5);
+            //UpdateBank("Linnapankki", "LINAFIHH");
 
-            //RemoveBank("Linnapankki", 5);
+            //RemoveBank(8);
 
-            BankView();
+            //BankView();
 
             //UpdateCustomer("Paul", "McDingelson", 1);
 
-            //RemoveCustomer("Paul", "McDingelson", 1);
+            //RemoveCustomer(12);
 
             //PrintCustomerData("Dirk", "McTullamore");
 
@@ -53,7 +53,7 @@ namespace bankAppHarjoitustyo
 
         static void AddCustomer(string firstName, string lastName, long bankId)
         {
-            Customer customer = new Customer();
+            Customer customer = new Customer(firstName, lastName, bankId);
             CustomerRepository customerRepository = new CustomerRepository();
             customerRepository.AddCustomer(customer);
         }
@@ -66,49 +66,49 @@ namespace bankAppHarjoitustyo
 
         static void AddAccount(string iban, string name, long bankId, long customerId, decimal balance)
         {
-            Account account = new Account();
+            Account account = new Account(iban, name, bankId, customerId, balance);
             AccountRepository accountRepository = new AccountRepository();
             accountRepository.AddAccount(account);
         }
 
-        static void RemoveAccount(string iban, string name)
+        static void RemoveAccount(string iban, string name, long bankId, long customerId, decimal balance)
         {
-            Account account = new Account();
+            Account account = new Account(iban, name, bankId, customerId, balance);
             AccountRepository accountRepository = new AccountRepository();
             accountRepository.RemoveAccount(account);
         }
 
-        static void AddBank(string name, string bic, long id)
+        static void AddBank(string name, string bic)
         {
-            Bank bank = new Bank();
+            Bank bank = new Bank(name, bic);
             BankRepository bankRepository = new BankRepository();
             bankRepository.AddBank(bank);
         }
 
-        static void RemoveBank(string name, long id)
+        static void RemoveBank(long id)
         {
-            Bank bank = new Bank();
+            Bank bank = new Bank(id);
             BankRepository bankRepository = new BankRepository();
             bankRepository.RemoveBank(bank);
         }
 
-        static void UpdateBank(string name, string bic, long id)
+        static void UpdateBank(string name, string bic)
         {
-            Bank bank = new Bank();
+            Bank bank = new Bank(name, bic);
             BankRepository bankRepository = new BankRepository();
             bankRepository.UpdateBank(bank);
         }
 
         static void UpdateCustomer(string firstName, string lastName, long bankId)
         {
-            Customer customer = new Customer();
+            Customer customer = new Customer(firstName, lastName, bankId);
             CustomerRepository customerRepository = new CustomerRepository();
             customerRepository.UpdateCustomer(customer);
         }
 
-        static void RemoveCustomer(string firstName, string lastName, long bankId)
+        static void RemoveCustomer(long id)
         {
-            Customer customer = new Customer();
+            Customer customer = new Customer(id);
             CustomerRepository customerRepository = new CustomerRepository();
             customerRepository.RemoveCustomer(customer);
         }
